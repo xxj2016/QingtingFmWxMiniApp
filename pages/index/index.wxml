@@ -4,7 +4,7 @@
     <view class="tab-item {{mainView==2 ? 'tab-item-active' : ''}}" bindtap="tabItemTap" data-view="2">分类</view>
     <view class="tab-item {{mainView==3 ? 'tab-item-active' : ''}}" bindtap="tabItemTap" data-view="3">搜索</view>
 </view>
-<view hidden='{{ mainView != 1 }}'>
+<view hidden='{{ mainView != 1 }}' style='margin-top: 90rpx;'>
     <swiper indicator-active-color='{{indicatorActiveColor}}' indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
         <block wx:for='{{banners}}' wx:key='unique'>
             <swiper-item data-id='{{item.id}}' data-programId='{{item.program_id}}'>
