@@ -1,21 +1,143 @@
 /**index.wxss**/
+
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+    color: #aaa;
 }
 
 .usermotto {
-  margin-top: 200px;
+    margin-top: 200px;
 }
+
+/* tab导航 start */
+
+.tab {
+    display: flex;
+    width: 100%;
+}
+
+.tab-item {
+    padding: 10px 0;
+    text-align: center;
+    flex: 0 0 33.33%;
+}
+
+.tab-item.tab-item-active {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+}
+
+/* tab导航 end */
+
+/* 推荐页节目内容列表 start */
+.choicenessContent {
+	/* width: 100%; */
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.re_title {
+	overflow: hidden;
+	/* margin: 10rpx 15rpx 0 15rpx; */
+	padding-left: 0;
+	line-height: 36rpx;
+	font-size: 35rpx;
+	padding:10px 0;
+	margin:0 1%;
+
+}
+.re_title .rbtn {
+	float: right;
+	color: #999;
+	font-size: 24rpx;
+}
+
+.flex-boxlist {
+    overflow: hidden;
+    display: flex;
+}
+
+.tl_cnt {
+	flex: 1;
+    box-sizing: border-box;
+    line-height: 1.2;
+	flex-wrap: wrap;
+	overflow: hidden;
+	margin: 0 1%;
+}
+
+.tl_cnt text {
+    font-size: 26rpx;
+    color: #666;
+}
+.cover {
+	position: relative;
+	height: 140px;
+}
+.cover .re_cover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.cover image {
+	height: 140px;
+	border: 1px solid rgba(0, 0, 0, .1);
+	box-sizing: border-box;
+}
+.cover .playcount {
+	position: absolute;
+	overflow-x: hidden;
+	bottom: 0;
+	left: 1px;
+	width: 100%;
+	padding-left: 10px;
+	background-image: linear-gradient(-90deg, transparent, #000);
+}
+.cover .playcount .playcount_img {
+	margin-right: 8px;
+    vertical-align: middle;
+
+	width: 12px;
+    height: 12px;
+}
+.cover .playcount .playcount_count {
+	line-height: 28px;
+    color: #fff;
+    font-size: 12px;
+}
+.tl_cnt .dec {
+	position: relative;
+
+	font-size: 14px;
+	color: #333;
+	line-height: 20px;
+	max-height: 40px;
+	height: inherit;
+
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: jidden;
+	text-overflow: ellipsis;
+	padding: 0;
+}
+/* 推荐页节目内容列表 end */

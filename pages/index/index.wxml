@@ -1,13 +1,42 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class='tab'>
+    <view class="tab-item {{mainView==1 ? 'tab-item-active' : ''}}" bindtap="tabItemTap" data-view="1">精选</view>
+    <view class="tab-item {{mainView==2 ? 'tab-item-active' : ''}}" bindtap="tabItemTap" data-view="2">分类</view>
+    <view class="tab-item {{mainView==3 ? 'tab-item-active' : ''}}" bindtap="tabItemTap" data-view="3">搜索</view>
+</view>
+<view hidden='{{ mainView != 1 }}'>
+    <swiper indicator-active-color='{{indicatorActiveColor}}' indicator-dots='{{indicatorDots}}' autoplay='{{autoplay}}' interval='{{interval}}' duration='{{duration}}'>
+        <block wx:for='{{banners}}' wx:key='unique'>
+            <swiper-item data-id='{{item.id}}' data-programId='{{item.program_id}}'>
+                <image src='{{item.img_url}}' style='height: 100%' class='banner-image'></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <block wx:for="{{choicenessList}}" wx:for-item="choicenessItem" wx:key='id'>
+        <view class='choicenessContent'>
+            <view class='re_title'>{{choicenessItem.name}}
+                <navigator class='rbtn'>更多></navigator>
+            </view>
+            <view class='flex-boxlist'>
+                <view class='tl_cnt' wx:for="{{choicenessItem.recommends}}" wx:for-index="idx" wx:if="{{idx<3}}" wx:for-item="recommend" wx:key='id'>
+                    <navigator>
+                        <view class='cover'>
+                            <image src="{{recommend.img_url}}" class='re_cover'></image>
+                            <view class='playcount'>
+                                <view class='playcount_count'>{{recommend.playcount}}</view>
+                            </view>
+                        </view>
+                        <text class='dec'>{{recommend.desc}}</text>
+                    </navigator>
+                </view>
+            </view>
+        </view>
     </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+
+</view>
+<view hidden='{{ mainView != 2 }}'>
+    我是分类
+</view>
+<view hidden='{{ mainView != 3 }}'>
+    我是搜索
 </view>
